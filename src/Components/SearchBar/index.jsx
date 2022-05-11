@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { searchByName } from "../../Redux/Actions/searchAction";
+import { searchByName } from "../../Redux/Actions/";
 
 
 export default function SearchBar({ setCurrentPage }) {

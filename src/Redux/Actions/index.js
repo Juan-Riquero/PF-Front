@@ -5,14 +5,14 @@ export const SEARCH_BY_NAME = 'SEARCH_BY_NAME';
 export function getSneakers() {
 	return async function (dispatch) {
 		try {
-        const getSneakers = await axios.get("http://localhost:3001/sneakers");
-        console.log(getSneakers)
-        return dispatch({
-          type: GET_SNEAKERS,
-          payload: getSneakers
-        })
+			const { data } = await axios.get("http://localhost:3001/sneakers");
+			console.log("estamos en Action",data)
+			return dispatch({
+				type: GET_SNEAKERS,
+				payload: data
+			})
 		} catch (error) {
-      console.log("There is an error in getsneakers action",error)
+			console.log("There is an error in getsneakers action", error)
 		}
 	};
 }
@@ -29,10 +29,10 @@ export function searchByName(name) {
 				});
 			}
 		} catch (error) {
-      return dispatch({
-        type: SEARCH_BY_NAME,
-        payload: error,
-      })
+			return dispatch({
+				type: SEARCH_BY_NAME,
+				payload: error,
+			})
 		}
 	};
 }
