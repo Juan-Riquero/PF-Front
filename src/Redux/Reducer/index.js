@@ -1,14 +1,15 @@
 
-  const initialState = {
-    
-  };
-  
-  const rootReducer = (state = initialState, { type }) => {
-    switch (type) {
-        
-      default:
-        return state;
-    }
-  };
-  
-  export default rootReducer;
+const initialState = {
+
+
+};
+
+const rootReducer = (state = initialState, { type }) => {
+  switch (type) {
+
+    default:
+      return state;
+  }
+};
+
+export default rootReducer;
