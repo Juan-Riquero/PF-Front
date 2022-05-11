@@ -4,7 +4,7 @@ function Notfound() {
     <div className="NotFound">
       <h2>404</h2>
       <h1>no Sneakers</h1>
-        <p> toy tiste </p>
+        <p> mejoren mi css  </p>
  
     </div>
   );
