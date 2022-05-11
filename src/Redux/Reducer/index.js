@@ -1,11 +1,32 @@
-import { combineReducers } from 'redux'
-import SearchReducer from "./searchReducer";
-import SneakersReducer from "./sneakersReducer"
-
-
+import {
+GET_SNEAKERS,
+SEARCH_BY_NAME
+} from "../Actions"
  
-export default combineReducers ({
-  SearchReducer,
-   SneakersReducer
-})
+const initialState = {
+  searchSneakers: [],
+  Sneakers: [],
+  SneakersCopy: [],
+};
 
+
+const rootReducer =  (state = initialState, { type,payload }) => {
+  switch (type) {
+      case GET_SNEAKERS:
+        return {
+          ...state,
+          Sneakers: payload,
+          SneakersCopy: payload,
+         };
+
+       case SEARCH_BY_NAME:
+          return {
+        ...state,
+        searchSneakers: payload
+      };
+
+    default:
+      return state;
+  }
+};
+export default rootReducer;
