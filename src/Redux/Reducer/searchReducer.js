@@ -4,7 +4,7 @@ import { SEARCH_BY_NAME } from "../Actions/searchAction";
     searchSneakers: [],
   };
   
-  const rootReducer = (state = initialState, { type,payload }) => {
+  export default function SearchReducer  (state = initialState, { type,payload })  {
     switch (type) {
 
       case SEARCH_BY_NAME:
@@ -18,4 +18,3 @@ import { SEARCH_BY_NAME } from "../Actions/searchAction";
     }
   };
   
-  export default rootReducer;

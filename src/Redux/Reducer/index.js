@@ -1,14 +1,11 @@
+import { combineReducers } from 'redux'
+import SearchReducer from "./searchReducer";
+import SneakersReducer from "./sneakersReducer"
 
-  const initialState = {
-    
-  };
-  
-  const rootReducer = (state = initialState, { type }) => {
-    switch (type) {
-        
-      default:
-        return state;
-    }
-  };
-  
-  export default rootReducer;
+
+ 
+export default combineReducers ({
+  SearchReducer,
+   SneakersReducer
+})
+
