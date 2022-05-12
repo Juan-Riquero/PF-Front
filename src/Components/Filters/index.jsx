@@ -8,6 +8,7 @@ const Filters = () => {
   const handleCategory = (e) => {
     e.preventDefault();
     dispatch(filterByCategory(e.target.value));
+    
   }
 
   const handleBrand = (e) => {
