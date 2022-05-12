@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 //Componentes y funciones
 // import Pagination from '../Pagination';
-import Card from '../Card'
+import Cards from '../Cards'
 import SearchBar from '../SearchBar';
 
 //const SNEAKERS_PER_PAGE = 11;
@@ -32,11 +32,12 @@ const Home = () => {
   return (
     <div>
       <h1>Home</h1>
-      {/* <Pagination /> */}
       <SearchBar />
-      {
+      {/* <Pagination /> */}
+      {/* {
         currentPageSneakers.length > 0 && currentPageSneakers?.map((s, i) => < Card key={i} name={s.name} color={s.color}/>)
-      }
+      } */}
+      <Cards renderSneakers={currentPageSneakers} />
     </div>
   );
 }

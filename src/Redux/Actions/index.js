@@ -6,7 +6,6 @@ export function getSneakers() {
 	return async function (dispatch) {
 		try {
 			const { data } = await axios.get("http://localhost:3001/sneakers");
-			console.log("estamos en Action",data)
 			return dispatch({
 				type: GET_SNEAKERS,
 				payload: data

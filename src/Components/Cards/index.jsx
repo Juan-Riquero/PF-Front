@@ -5,11 +5,11 @@ function Cards({ renderSneakers }) {
   console.log("componente Cards", renderSneakers)
   useEffect(() => {
 
-  },[renderSneakers])
+  }, [renderSneakers])
   return (
     <>
       {
-        renderSneakers.length > 0 && renderSneakers?.map((sneaker,i) => <Card key={i} sneaker={`${sneaker}`} />)
+        renderSneakers.length > 0 && renderSneakers?.map((sneaker, i) => <Card key={i} sneaker={sneaker} />)
       }
     </>
   )
