@@ -11,6 +11,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getSneakers());
+    // eslint-disable-next-line
   }, [])
 
   return (
