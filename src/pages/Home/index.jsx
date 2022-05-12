@@ -1,6 +1,6 @@
 //componenente Home
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 //Componentes y funciones
 // import Pagination from '../Pagination';
@@ -11,12 +11,11 @@ import Filters from '../../Components/Filters';
 
 
 const Home = () => {
-  const dispatch = useDispatch();
   const filteredSneakers = useSelector(state => state.Sneakers);
 
   // PAGINACIÓN ----------------------------------------------------------------------------------------------------
-  // Se crea la paginación de 12 zapatillas por pagina
-  const SNEAKERS_PER_PAGE = 4; // Constante para setear cantidad de zapatillas por página
+  // Se crea la paginación de x zapatillas por pagina
+  const SNEAKERS_PER_PAGE = 8; // Constante para setear cantidad de zapatillas por página
   const [currentPage, setCurrentPage] = useState(1); // Estado para seleccionar pagina actual
   const lastSneaker = currentPage * SNEAKERS_PER_PAGE;
   const firstSneaker = lastSneaker - SNEAKERS_PER_PAGE;
@@ -24,10 +23,6 @@ const Home = () => {
   // que se mostraran en la página actual
   let currentPageSneakers = filteredSneakers.length ? filteredSneakers.slice(firstSneaker, lastSneaker) : [];
   //---------------------------------------------------------------------------------------------------------------
-
-  // useEffect(() => {
-  // }, [])
-
   return (
     <div>
       <h1>Home</h1>
