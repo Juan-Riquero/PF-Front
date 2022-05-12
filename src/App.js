@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { getSneakers } from './Redux/Actions';
-import Home from './Components/Home/Home';
+import Home from './Pages/Home';
 
 function App() {
 

@@ -1,32 +1,43 @@
-import React from "react";
-import "./home.css";
-import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+//componenente Home
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+//Componentes y funciones
+// import Pagination from '../Pagination';
+import Cards from '../../Components/Cards'
+import SearchBar from '../../Components/SearchBar';
 
- export default function Home() {
+//const SNEAKERS_PER_PAGE = 11;
+
+const Home = () => {
   const dispatch = useDispatch();
+  const filteredSneakers = useSelector(state => state.Sneakers);
 
-  
-  
-  const [currentPage, setCurrentPage] = useState(1);
-  const [gamesPerPage, setGamesPerPage] = useState(15);
-  const indexOfLastGame = currentPage * gamesPerPage; //15
-  const indexOfFirstGame = indexOfLastGame - gamesPerPage; // 0
+  // PAGINACIÓN ----------------------------------------------------------------------------------------------------
+  // Se crea la paginación de 12 zapatillas por pagina
+  const [currentPage, setCurrentPage] = useState(1); // Estado para seleccionar pagina actual
+  const [sneakerPerPage, setSneakerPerPage] = useState(11); // Estado para seleccionar pagina actual
+  const lastSneaker = currentPage * sneakerPerPage - 1;
+  const firstSneaker = lastSneaker - sneakerPerPage;
+  // Se corta el array de todas las zapatillas con los dos indices inicial y final de la página, para obtener las zapatillas 
+  // que se mostraran en la página actual
+  let currentPageSneakers = filteredSneakers.length ? filteredSneakers.slice(0, 11) : [];
+  console.log("componente Home", filteredSneakers);
+  //---------------------------------------------------------------------------------------------------------------
 
-  const currentGames = fullGames.slice(indexOfFirstGame, indexOfLastGame);
-  const paginas = Math.ceil(fullGames.length / gamesPerPage)
- 
-  const paginado = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+/*   useEffect(() => {
 
-  useEffect(() => {
-   // dispatch(getGames());
-  }, [dispatch]);
+  }, [filteredSneakers]) */
+
   return (
-    <div >  
+    <div>
+      <h1>Home</h1>
+      <SearchBar />
+      {/* <Pagination /> */}
+
+      <Cards renderSneakers={currentPageSneakers} />
     </div>
   );
 }
+
+export default Home;
