@@ -1,18 +1,19 @@
-import axios from "axios";
-export const GET_SNEAKERS = "GET_SNEAKERS";
-export const SEARCH_BY_NAME = 'SEARCH_BY_NAME';
+import axios from 'axios';
+export const GET_SNEAKERS = 'GET_SNEAKERS',
+	SEARCH_BY_NAME = 'SEARCH_BY_NAME',
+	FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY',
+	FILTER_BY_BRAND = 'FILTER_BY_BRAND';
 
 export function getSneakers() {
 	return async function (dispatch) {
 		try {
-        const getSneakers = await axios.get("http://localhost:3001/sneakers");
-        console.log(getSneakers)
-        return dispatch({
-          type: GET_SNEAKERS,
-          payload: getSneakers
-        })
+			const { data } = await axios.get('http://localhost:3001/sneakers');
+			return dispatch({
+				type: GET_SNEAKERS,
+				payload: data,
+			});
 		} catch (error) {
-      console.log("There is an error in getsneakers action",error)
+			console.log('There is an error in getsneakers action', error);
 		}
 	};
 }
@@ -29,10 +30,49 @@ export function searchByName(name) {
 				});
 			}
 		} catch (error) {
-      return dispatch({
-        type: SEARCH_BY_NAME,
-        payload: error,
-      })
+			return dispatch({
+				type: SEARCH_BY_NAME,
+				payload: error,
+			});
+		}
+	};
+}
+
+export function filterByCategory(category) {
+	return async function (dispatch) {
+		try {
+			const { data } = await axios.get(
+				`http://localhost:3001/filters/category?category=${category}`
+			);
+
+			return dispatch({
+				type: FILTER_BY_CATEGORY,
+				payload: data.sneakers,
+			});
+		} catch (error) {
+			return dispatch({
+				type: FILTER_BY_CATEGORY,
+				payload: error,
+			});
+		}
+	};
+}
+
+export function filterByBrand(brand) {
+	return async function (dispatch) {
+		try {
+			const { data } = await axios.get(
+				`http://localhost:3001/filters/brand?brand=${brand}`
+			);
+			return dispatch({
+				type: FILTER_BY_BRAND,
+				payload: data.sneakers,
+			});
+		} catch (error) {
+			return dispatch({
+				type: FILTER_BY_BRAND,
+				payload: error,
+			});
 		}
 	};
 }
