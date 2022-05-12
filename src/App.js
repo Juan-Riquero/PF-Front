@@ -1,9 +1,12 @@
+import "./App.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
+
+//Componentes y funciones
+import Home from './Pages/Home';
+import NavBar from "./Components/NavBar/NavBar";
 import { getSneakers } from './Redux/Actions';
-import Home from './pages/Home';
 
 function App() {
 
@@ -16,6 +19,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar/>
       <Routes>
         <Route path="/" element={<Home />}/>
       </Routes>

@@ -60,6 +60,8 @@ export function filterByCategory(category) {
 
 export function filterByBrand(brand) {
 	return async function (dispatch) {
+    brand = brand.toLowerCase();
+    console.log('LLEGUEEEEEEEEE'); 
 		try {
 			const { data } = await axios.get(
 				`http://localhost:3001/filters/brand?brand=${brand}`
