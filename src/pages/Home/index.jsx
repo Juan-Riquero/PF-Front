@@ -5,9 +5,10 @@ import { useSelector } from 'react-redux';
 //Componentes y funciones
 // import Pagination from '../Pagination';
 import Cards from '../../Components/Cards'
-import SearchBar from '../../Components/SearchBar';
 import Pagination from '../../Components/Pagination';
 import Filters from '../../Components/Filters';
+import ImagenPrincipal from '../../Components/ImagenPrincipal';
+import Carrousel from '../../Components/Carrousel';
 
 
 const Home = () => {
@@ -25,10 +26,10 @@ const Home = () => {
   //---------------------------------------------------------------------------------------------------------------
   return (
     <div>
-      <h1>Home</h1>
+      <ImagenPrincipal />
+      
+      <Carrousel/>
 
-      {/* Componente para searchBar */}
-      <SearchBar />
       {/* Componente para filtros */}
       <Filters />
 
