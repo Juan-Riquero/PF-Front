@@ -64,9 +64,6 @@ export function filterByBrand(brand) {
 			const { data } = await axios.get(
 				`http://localhost:3001/filters/brand?brand=${brand}`
 			);
-
-			console.log(data);
-			console.log(brand);
 			return dispatch({
 				type: FILTER_BY_BRAND,
 				payload: data.sneakers,

@@ -1,14 +1,16 @@
 import React from "react";
+import style from './Card.module.css'
 
 function Card({ sneaker }) {
-  const { name, color, details, price} = sneaker;
-  
+  const { name, color, details, price, grid_picture_url } = sneaker;
+
   return (
-    <div>
-      <h2>{name}</h2>
-      <h3>{color}</h3>
-      <h3>{sneaker.details}</h3>
-      <h3>{sneaker.price}</h3>
+    <div className={style.card} >
+      <h3 className={style.name} >{name}</h3>
+      <h4 className={style.color}>{color}</h4>
+      <h4>{details}</h4>
+      <h4>{price}</h4>
+      <img src={grid_picture_url} alt={`Foto zapatilla`}/>
     </div>
   );
 }
