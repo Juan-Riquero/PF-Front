@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import Card from '../Card';
 
 function Cards({ renderSneakers }) {
-  console.log("componente Cards", renderSneakers)
   useEffect(() => {
 
   }, [renderSneakers])
