@@ -9,6 +9,7 @@ const initialState = {
 	searchSneakers: [],
 	Sneakers: [],
 	SneakersCopy: [],
+  filters: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -23,19 +24,22 @@ const rootReducer = (state = initialState, { type, payload }) => {
 		case SEARCH_BY_NAME:
 			return {
 				...state,
+        Sneakers: payload,
 				searchSneakers: payload,
 			};
 
 		case FILTER_BY_CATEGORY:
 			return {
 				...state,
-				filters: payload,
+				Sneakers: payload,
+        filters: payload,
 			};
 
 		case FILTER_BY_BRAND:
 			return {
 				...state,
-				filters: payload,
+				Sneakers: payload,
+        filters: payload,
 			};
 
 		default:

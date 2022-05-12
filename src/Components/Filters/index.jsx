@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { filterByBrand, filterByCategory } from '../../Redux/Actions/filtersActions';
+import { filterByBrand, filterByCategory } from '../../Redux/Actions/index';
 
 const Filters = () => {
   const dispatch = useDispatch();
@@ -8,6 +8,7 @@ const Filters = () => {
   const handleCategory = (e) => {
     e.preventDefault();
     dispatch(filterByCategory(e.target.value));
+    
   }
 
   const handleBrand = (e) => {
