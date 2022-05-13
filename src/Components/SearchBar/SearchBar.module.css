@@ -49,7 +49,7 @@ input:focus {
   cursor: pointer;
 }
 
-button {
+.search_button {
   display: none;
 }
 

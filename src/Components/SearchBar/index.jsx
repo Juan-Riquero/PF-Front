@@ -33,7 +33,7 @@ export default function SearchBar({ setCurrentPage }) {
           pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\-., ]{3,100}"
           title="Search must be between 3 and 100 characters"
         />
-        <button type="submit">Search</button>
+        <button type="submit" className={styles.search_button}>Search</button>
         <div className={styles.searchIcon} onClick={handleOnSubmit}>
           <BiSearchAlt2 />
         </div>
