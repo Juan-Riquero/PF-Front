@@ -34,7 +34,7 @@ export default function Detail() {
                 <h6>Sizes: {sneaker.sizes?.map(({size}, i)=><p key={i}>{size} </p>)}</h6>
                 <h6>Model: {sneaker.name}</h6>  
                 <div>
-                  <Link  to="/sneakers">
+                  <Link  to="/">
                     GO BACK
                   </Link>
                   <button>

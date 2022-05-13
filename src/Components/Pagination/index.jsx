@@ -4,7 +4,7 @@ import React from "react";
 function Paginado({ numberOfSneakers, currentPage, setCurrentPage, SNEAKERS_PER_PAGE }) {
 
   const pageNumbers = [];
-  console.log('CANTIDAD DE PAGINAS', pageNumbers);
+  //console.log('CANTIDAD DE PAGINAS', pageNumbers);
   // Se calcula el número de páginas que se mostrarán
   const numberOfPages = Math.ceil(numberOfSneakers / SNEAKERS_PER_PAGE);
 

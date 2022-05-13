@@ -18,7 +18,7 @@ const Filters = () => {
 
   useEffect(() => {
     peticion();
-    console.log("marcas", brands)
+    //console.log("marcas", brands)
     // eslint-disable-next-line
   }, [])
 
@@ -43,16 +43,16 @@ const Filters = () => {
       >
         <option value="">All categories</option>
         {
-          categories.length && categories?.map(({ id, name }) => <option key={id} value={name}>{name}</option>)
+          categories.length && categories?.map(({ name },id) => <option key={id} value={name}>{name}</option>)
         }
       </select>
 
       <select
         onChange={handleBrand}
       >
-        <option value="">All brands</option>
+        <option value="" >All brands</option>
         {
-          brands.length && brands?.map(({ id, name }) => <option key={id} value={name}>{name}</option>)
+          brands.length && brands?.map(({  name },id) => <option key={id} value={name}>{name}</option>)
         }
       </select>
     </>
