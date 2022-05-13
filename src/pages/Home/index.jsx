@@ -9,7 +9,7 @@ import Pagination from '../../Components/Pagination';
 import Filters from '../../Components/Filters';
 import ImagenPrincipal from '../../Components/ImagenPrincipal';
 import Carrousel from '../../Components/Carrousel';
-
+import style from './home.module.css'
 
 const Home = () => {
   const filteredSneakers = useSelector(state => state.Sneakers);
@@ -25,7 +25,7 @@ const Home = () => {
   let currentPageSneakers = filteredSneakers.length ? filteredSneakers.slice(firstSneaker, lastSneaker) : [];
   //---------------------------------------------------------------------------------------------------------------
   return (
-    <div>
+    <div className={style.home}>
       <ImagenPrincipal />
       
       <Carrousel/>
