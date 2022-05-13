@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { filterByBrand, filterByCategory } from '../../Redux/Actions/index';
 
+import s from './filters.module.css'
+
 const Filters = () => {
   const dispatch = useDispatch();
 
@@ -18,7 +20,7 @@ const Filters = () => {
 
   useEffect(() => {
     peticion();
-    console.log("marcas", brands)
+    //console.log("marcas", brands)
     // eslint-disable-next-line
   }, [])
 
@@ -36,26 +38,26 @@ const Filters = () => {
   }
 
   return (
-    <>
-      <h1>Filters</h1>
+    <div className={s.filters}>
       <select
+        disabled={true}
         onChange={handleCategory}
       >
         <option value="">All categories</option>
         {
-          categories.length && categories?.map(({ id, name }) => <option key={id} value={name}>{name}</option>)
+          categories.length && categories?.map(({ name },id) => <option key={id} value={name}>{name}</option>)
         }
       </select>
 
       <select
         onChange={handleBrand}
       >
-        <option value="">All brands</option>
+        <option value="" >All brands</option>
         {
-          brands.length && brands?.map(({ id, name }) => <option key={id} value={name}>{name}</option>)
+          brands.length && brands?.map(({  name },id) => <option key={id} value={name}>{name}</option>)
         }
       </select>
-    </>
+    </div>
   );
 }
 

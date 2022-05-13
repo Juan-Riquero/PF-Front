@@ -34,15 +34,18 @@ const rootReducer = (state = initialState, { type, payload }) => {
 			};
 
 		case FILTER_BY_CATEGORY:
-      const filterCategory= state.SneakersCopy.filter((el)=> el.category.includes(payload))
-			return {
-				...state,
+      //const filterCategory= state.SneakersCopy.filter((el)=> el.category.includes(payload))
+	  const filterCategory = payload === "" ? state.SneakersCopy : state.SneakersCopy.filter((el)=> el.category.includes(payload))
+		return {
+	            ...state,
 				Sneakers: filterCategory,
 			};
 
 		case FILTER_BY_BRAND:
-      const filterBrand= state.SneakersCopy.filter((el)=> el.brand_name=== "Air jordan")
-      console.log("estamos todos en el reducer", filterBrand)
+			//console.log("estamos en reducer consologueando el payload",payload)
+			const filterBrand = payload === "" ? state.SneakersCopy : state.SneakersCopy.filter((el)=> el.brand_name.toLowerCase()===payload)
+     // const filterBrand= state.SneakersCopy.filter((el)=> el.brand_name.toLowerCase()===payload)
+      //console.log("estamos todos en el reducer", filterBrand)
 			return {
 				...state,
 				Sneakers: filterBrand,

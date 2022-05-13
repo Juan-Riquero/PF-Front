@@ -40,6 +40,8 @@ export function searchByName(name) {
 }
 
 export function filterByCategory(category) {
+	category= category.toLowerCase()
+
 	return  function (dispatch) {
 		try {
             return dispatch({
@@ -57,12 +59,13 @@ export function filterByCategory(category) {
 
 export function filterByBrand(brand) {
 	return async function (dispatch) {
-   // brand = brand.toLowerCase();
+   brand = brand.toLowerCase();
    // console.log('LLEGUEEEEEEEEE'); 
 		try {
 			/* const { data } = await axios.get(
 				`http://localhost:3001/filters/brand?brand=${brand}`
 			); */
+
 			return dispatch({
 				type: FILTER_BY_BRAND,
 				payload: brand,
@@ -79,7 +82,7 @@ export function getDetailSneaker(id) {
 	return async function (dispatch) {
 		try {
 			const { data } = await axios.get(`http://localhost:3001/sneakers/${id}`);
-			console.log("estamos en detail-actions pa", data)
+			//console.log("estamos en detail-actions pa", data)
 			return dispatch({
 				type: GET_DETAIL,
 				payload: data,
