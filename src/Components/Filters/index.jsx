@@ -32,6 +32,7 @@ const Filters = () => {
   const handleBrand = (e) => {
     e.preventDefault();
     dispatch(filterByBrand(e.target.value));
+    console.log("estamos en el handle brand", e.target.value)
   }
 
   return (
@@ -40,16 +41,18 @@ const Filters = () => {
       <select
         onChange={handleCategory}
       >
+        <option value="">All categories</option>
         {
-          brands.length && brands?.map(({ id, name }) => <option key={id} value={name}>{name}</option>)
+          categories.length && categories?.map(({ id, name }) => <option key={id} value={name}>{name}</option>)
         }
       </select>
 
       <select
         onChange={handleBrand}
       >
+        <option value="">All brands</option>
         {
-          categories.length && categories?.map(({ id, name }) => <option key={id} value={name}>{name}</option>)
+          brands.length && brands?.map(({ id, name }) => <option key={id} value={name}>{name}</option>)
         }
       </select>
     </>

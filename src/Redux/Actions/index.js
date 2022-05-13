@@ -2,7 +2,8 @@ import axios from 'axios';
 export const GET_SNEAKERS = 'GET_SNEAKERS',
 	SEARCH_BY_NAME = 'SEARCH_BY_NAME',
 	FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY',
-	FILTER_BY_BRAND = 'FILTER_BY_BRAND';
+	FILTER_BY_BRAND = 'FILTER_BY_BRAND',
+	GET_DETAIL= "GET_DETAIL"
 
 export function getSneakers() {
 	return async function (dispatch) {
@@ -39,15 +40,11 @@ export function searchByName(name) {
 }
 
 export function filterByCategory(category) {
-	return async function (dispatch) {
+	return  function (dispatch) {
 		try {
-			const { data } = await axios.get(
-				`http://localhost:3001/filters/category?category=${category}`
-			);
-
-			return dispatch({
+            return dispatch({
 				type: FILTER_BY_CATEGORY,
-				payload: data.sneakers,
+				payload: category,
 			});
 		} catch (error) {
 			return dispatch({
@@ -60,19 +57,35 @@ export function filterByCategory(category) {
 
 export function filterByBrand(brand) {
 	return async function (dispatch) {
+   // brand = brand.toLowerCase();
+   // console.log('LLEGUEEEEEEEEE'); 
 		try {
-			const { data } = await axios.get(
+			/* const { data } = await axios.get(
 				`http://localhost:3001/filters/brand?brand=${brand}`
-			);
+			); */
 			return dispatch({
 				type: FILTER_BY_BRAND,
-				payload: data.sneakers,
+				payload: brand,
 			});
 		} catch (error) {
 			return dispatch({
 				type: FILTER_BY_BRAND,
 				payload: error,
 			});
+		}
+	};
+}
+export function getDetailSneaker(id) {
+	return async function (dispatch) {
+		try {
+			const { data } = await axios.get(`http://localhost:3001/sneakers/${id}`);
+			console.log("estamos en detail-actions pa", data)
+			return dispatch({
+				type: GET_DETAIL,
+				payload: data,
+			});
+		} catch (error) {
+			console.log('There is an error in getDetailSneaker action', error);
 		}
 	};
 }

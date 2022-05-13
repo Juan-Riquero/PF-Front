@@ -18,15 +18,32 @@ function Paginado({ numberOfSneakers, currentPage, setCurrentPage, SNEAKERS_PER_
     setCurrentPage(pageNumber);
   };
 
+  const handleNextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setCurrentPage(currentPage - 1);
+  };
+
   return (
-    <>
+    <nav>
+      {/* Boton anterior */}
+      <button
+        onClick={handlePreviousPage}
+        disabled={currentPage === 1}>
+        {/* className={currentPage === 1 ? styles.disabled : styles.previous_and_next_button} */}
+        Previous
+      </button>
       {/* Botones de las paginas */}
+
       {
         pageNumbers?.map((number) => {
           return (
             <button
               onClick={() => paginated(number)}
               key={number}
+              disabled={currentPage === number}
             >
               {number}
             </button>
@@ -34,34 +51,14 @@ function Paginado({ numberOfSneakers, currentPage, setCurrentPage, SNEAKERS_PER_
         })
       }
 
-      {/* <nav>
-        {pageNumbers?.map((number) => {
-          return (
-            <li className="number" key={number}>
-              <a onClick={() => paginated(number)} href="#">
-                {number}
-              </a>
-            </li>
-          );
-        })}
-      </nav> */}
-
-      {/* Boton anterior */}
-      {/* <button
-        onClick={handlePreviousPage}
-        disabled={currentPage === 1}
-        className={currentPage === 1 ? styles.disabled : styles.previous_and_next_button}>
-        Anterior
-      </button> */}
-
       {/* Boton siguiente */}
-      {/* <button
+      <button
         onClick={handleNextPage}
-        disabled={currentPage === numbersOfPages}
-        className={currentPage === numbersOfPages ? styles.disabled : styles.previous_and_next_button}>
-        Siguiente
-      </button> */}
-    </>
+        disabled={currentPage === numberOfPages}>
+        Next
+        {/* // className={currentPage === numberOfPages ? styles.disabled : styles.previous_and_next_button}> */}
+      </button>
+    </nav>
   );
 }
 
