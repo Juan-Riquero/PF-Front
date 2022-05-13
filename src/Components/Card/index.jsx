@@ -6,6 +6,8 @@ function Card({ sneaker }) {
   const { name, price, grid_picture_url,brand_name,id} = sneaker;
   
   return (
+
+    
     <div>
       <Link to ={`/detail/${id}`}>
       <h2>{name}</h2>
