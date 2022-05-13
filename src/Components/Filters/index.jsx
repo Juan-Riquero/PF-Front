@@ -1,49 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { filterByBrand, filterByCategory } from '../../Redux/Actions/index';
 
 const Filters = () => {
   const dispatch = useDispatch();
 
+  const [brands, setBrands] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const peticion = async () => {
+    let resp1 = await fetch(`http://localhost:3001/brands`);
+    let brands = await resp1.json();
+    let resp2 = await fetch(`http://localhost:3001/categories`);
+    let categories = await resp2.json();
+    setBrands(brands);
+    setCategories(categories);
+  }
+
+  useEffect(() => {
+    peticion();
+    console.log("marcas", brands)
+    // eslint-disable-next-line
+  }, [])
+
+
   const handleCategory = (e) => {
     e.preventDefault();
     dispatch(filterByCategory(e.target.value));
-    
+
   }
 
   const handleBrand = (e) => {
     e.preventDefault();
     dispatch(filterByBrand(e.target.value));
+    console.log("estamos en el handle brand", e.target.value)
   }
-  
+
   return (
     <>
       <h1>Filters</h1>
       <select
         onChange={handleCategory}
       >
-        <option value="">Select</option>
-        <option value="basketball">basketball</option>
-        <option value="lifestyle">lifestyle</option>
-        <option value="running">running</option>
-        <option value="skateboarding">skateboarding</option>
-        <option value="deporte">deporte</option>
-        <option value="casa">casa</option>
-        <option value="futbol">futbol</option>
-        <option value="dormir">dormir</option>
+        <option value="">All categories</option>
+        {
+          categories.length && categories?.map(({ id, name }) => <option key={id} value={name}>{name}</option>)
+        }
       </select>
 
       <select
         onChange={handleBrand}
       >
-        <option value="">Select</option>
-        <option value="nike">nike</option>
-        <option value="adidas">adidas</option>
-        <option value="air jordan">air jordan</option>
-        <option value="converse">converse</option>
-        <option value="vans">vans</option>
-        <option value="champion">champion</option>
-        <option value="perro">perro</option>
+        <option value="">All brands</option>
+        {
+          brands.length && brands?.map(({ id, name }) => <option key={id} value={name}>{name}</option>)
+        }
       </select>
     </>
   );

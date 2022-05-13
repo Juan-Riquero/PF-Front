@@ -3,13 +3,18 @@ import {
 	SEARCH_BY_NAME,
 	FILTER_BY_BRAND,
 	FILTER_BY_CATEGORY,
+  GET_DETAIL,
 } from '../Actions';
+
+
+
 
 const initialState = {
 	searchSneakers: [],
 	Sneakers: [],
 	SneakersCopy: [],
   filters: [],
+  detail: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -29,18 +34,25 @@ const rootReducer = (state = initialState, { type, payload }) => {
 			};
 
 		case FILTER_BY_CATEGORY:
+      const filterCategory= state.SneakersCopy.filter((el)=> el.category.includes(payload))
 			return {
 				...state,
-				Sneakers: payload,
-        filters: payload,
+				Sneakers: filterCategory,
 			};
 
 		case FILTER_BY_BRAND:
+      const filterBrand= state.SneakersCopy.filter((el)=> el.brand_name=== "Air jordan")
+      console.log("estamos todos en el reducer", filterBrand)
 			return {
 				...state,
-				Sneakers: payload,
-        filters: payload,
+				Sneakers: filterBrand,
+      
 			};
+      case GET_DETAIL:
+        return{
+          ...state,
+          detail: payload,
+        };
 
 		default:
 			return state;

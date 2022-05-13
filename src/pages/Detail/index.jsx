@@ -1,25 +1,38 @@
 import { Link, useParams } from "react-router-dom";
-import "./detail.css";
+//import "./detail.css";
 import React, { useEffect } from "react";
-/* import { useDispatch, useSelector } from "react-redux";
-import { getDetail, deleteVideogame } from "../../Redux/Actions";
-import { useState } from "react"; */
+import { useDispatch, useSelector } from "react-redux";
+import { getDetailSneaker } from "../../Redux/Actions";
+
+
 
 export default function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
+  const sneaker = useSelector(state => state.detail);
+  
+  
+  console.log( "estamos en el componente DETAIL", sneaker)
+    useEffect(() => {
+    dispatch(getDetailSneaker(id))
+  }, [dispatch, id])
+
+
   return (
-    <div > 
-         <SearchBar />
+    <div > { !sneaker.price ? (
+    <img src="https://c.tenor.com/_tt3TLfzyYoAAAAC/s4gu-loding.gif"
+         alt={'img'} />) : (
+           
+         
             <div>
-              <img src={grid_picture_url} alt={'img'} />
+              <img src={sneaker.grid_picture_url} alt={'img'} />
               <div>
-                <h3 >{brand_name}</h3>
-                <h6>Price: {price}</h6>
-                <h6>Details: {details}</h6>
-                <h6>Sizes: {sizes}</h6>
-                <h6>Model: {name}</h6>  
+                <h3 >{sneaker.brand_name}</h3>
+                <h6>Price: {sneaker.price}</h6>
+                <h6>Details: {sneaker.details}</h6>
+                <h6>Sizes: {sneaker.sizes?.map(({size}, i)=><p key={i}>{size} </p>)}</h6>
+                <h6>Model: {sneaker.name}</h6>  
                 <div>
                   <Link  to="/sneakers">
                     GO BACK
@@ -31,7 +44,7 @@ export default function Detail() {
 
               </div>
             </div>
-           
+           )}
   
     </div>
   );
