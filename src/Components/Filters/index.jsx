@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { filterByBrand, filterByCategory } from '../../Redux/Actions/index';
 
+import s from './filters.module.css'
+
 const Filters = () => {
   const dispatch = useDispatch();
 
@@ -36,9 +38,9 @@ const Filters = () => {
   }
 
   return (
-    <>
-      <h1>Filters</h1>
+    <div className={s.filters}>
       <select
+        disabled={true}
         onChange={handleCategory}
       >
         <option value="">All categories</option>
@@ -55,7 +57,7 @@ const Filters = () => {
           brands.length && brands?.map(({  name },id) => <option key={id} value={name}>{name}</option>)
         }
       </select>
-    </>
+    </div>
   );
 }
 
