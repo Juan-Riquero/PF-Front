@@ -6,6 +6,7 @@ function Paginado({ numberOfSneakers, currentPage, setCurrentPage, SNEAKERS_PER_
   const pageNumbers = [];
   // Se calcula el número de páginas que se mostrarán
   const numberOfPages = Math.ceil(numberOfSneakers / SNEAKERS_PER_PAGE);
+  console.log('NUMBER OF PAGES', numberOfPages)
 
   // Se crea un array con los números de página
   for (let i = 1; i <= numberOfPages; i++) {
@@ -55,8 +56,8 @@ function Paginado({ numberOfSneakers, currentPage, setCurrentPage, SNEAKERS_PER_
       {/* Botón siguiente */}
       <button
         onClick={handleNextPage}
-        className={currentPage === numberOfPages ? s.disabled : s.previous_and_next_button}
-        disabled={currentPage === numberOfPages}>
+        className={currentPage === numberOfPages || !numberOfPages  ? s.disabled : s.previous_and_next_button}
+        disabled={currentPage === numberOfPages || !numberOfPages}>
         Next
       </button>
     </nav>
