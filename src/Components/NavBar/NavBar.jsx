@@ -6,7 +6,6 @@ import styles from './NavBar.module.css'
 // Componentes y funciones
 import SearchBar from '../SearchBar'
 
-
 const NavBar = () => {
   return (
     <header className={styles.header}>
@@ -19,7 +18,7 @@ const NavBar = () => {
         {/* el navlink se utiliza para saber si esta activo o no */}
         <ul className={styles.links__ul}>
           {/* Componente para searchBar */}
-          
+
           <NavLink
             className={styles.links__a}
             // className={({ isActive }) => {
@@ -33,7 +32,7 @@ const NavBar = () => {
           {/* <NavLink className={styles.links__a} to='/user'>
             Crear Usuario
           </NavLink> */}
-          <SearchBar/>
+          <SearchBar />
         </ul>
       </nav>
     </header>

@@ -3,7 +3,7 @@ export const GET_SNEAKERS = 'GET_SNEAKERS',
 	SEARCH_BY_NAME = 'SEARCH_BY_NAME',
 	FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY',
 	FILTER_BY_BRAND = 'FILTER_BY_BRAND',
-	GET_DETAIL= "GET_DETAIL"
+	GET_DETAIL = "GET_DETAIL"
 
 export function getSneakers() {
 	return async function (dispatch) {
@@ -18,6 +18,7 @@ export function getSneakers() {
 		}
 	};
 }
+
 // export function searchByName(name) {
 // 	return async function (dispatch) {
 // 		try {
@@ -39,35 +40,31 @@ export function getSneakers() {
 // 	};
 // }
 
-export function searchByName(name){
-	return{
+export function searchByName(name) {
+	return {
 		type: SEARCH_BY_NAME,
 		payload: name
 	}
 }
 
 export function filterByCategory(category) {
-	 return {
-		 type: FILTER_BY_CATEGORY,
-		 payload: category
-	 }
+	return {
+		type: FILTER_BY_CATEGORY,
+		payload: category
+	}
 }
 
 export function filterByBrand(brand) {
-	console.log("estoy en la brand pa",brand)
-   // brand = brand.toLowerCase();
-			return {
-				type: FILTER_BY_BRAND,
-				payload: brand.toLowerCase(),
-			}
-		} 
-	
+	return {
+		type: FILTER_BY_BRAND,
+		payload: brand.toLowerCase(),
+	}
+}
 
 export function getDetailSneaker(id) {
 	return async function (dispatch) {
 		try {
 			const { data } = await axios.get(`http://localhost:3001/sneaker/${id}`);
-			//console.log("estamos en detail-actions pa", data)
 			return dispatch({
 				type: GET_DETAIL,
 				payload: data,

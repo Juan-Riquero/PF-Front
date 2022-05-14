@@ -1,14 +1,12 @@
-//componenente Home
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 //Componentes y funciones
-// import Pagination from '../Pagination';
 import Cards from '../../Components/Cards'
-import Pagination from '../../Components/Pagination';
-import Filters from '../../Components/Filters';
 import ImagenPrincipal from '../../Components/ImagenPrincipal';
-import Carrousel from '../../Components/Carrousel';
+import Filters from '../../Components/Filters';
+import Pagination from '../../Components/Pagination';
+//import Carrousel from '../../Components/Carrousel';
 import style from './home.module.css'
 
 const Home = () => {
@@ -28,6 +26,7 @@ const Home = () => {
   // que se mostraran en la página actual
   let currentPageSneakers = filteredSneakers.length ? filteredSneakers.slice(firstSneaker, lastSneaker) : [];
   //---------------------------------------------------------------------------------------------------------------
+
   return (
     <div className={style.home}>
       <ImagenPrincipal />
