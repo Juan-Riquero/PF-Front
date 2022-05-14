@@ -18,20 +18,16 @@ const NavBar = () => {
 
         {/* el navlink se utiliza para saber si esta activo o no */}
         <ul className={styles.links__ul}>
-          {/* Componente para searchBar */}
+
           <NavLink
             className={styles.links__a}
             // className={({ isActive }) => {
             //     return isActive ? 'is-active' : '';
             // }}
-            to='/'
+            to='/create-user'
           >
-            Home
+            Sign Up
           </NavLink>
-
-          {/* <NavLink className={styles.links__a} to='/user'>
-            Crear Usuario
-          </NavLink> */}
           <SearchBar/>
         </ul>
       </nav>
