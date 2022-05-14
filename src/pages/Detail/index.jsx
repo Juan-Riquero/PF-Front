@@ -13,6 +13,7 @@ export default function Detail() {
   console.log("estamos en el componente DETAIL", sneaker);
   useEffect(() => {
     dispatch(getDetailSneaker(id));
+    console.log(sneaker)
   }, [dispatch, id]);
 
   return (
@@ -23,7 +24,7 @@ export default function Detail() {
       ) : (
         <div  className={s.detail}>
           <section className={s.left} >
-            <img src={sneaker.grid_picture_url} alt={"img"} />
+            <img src={sneaker.image} alt={"img"} />
             
             <div className={s.btn_container}>
               <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}>
@@ -37,20 +38,21 @@ export default function Detail() {
             
           </section>
           <section className={s.rigth}>
-            <p className={s.brand}> {sneaker.brand_name}</p>
+            <p className={s.brand}> {sneaker.model.brand.nameBrand}</p>
             <p className={s.price} >${sneaker.price}</p>
-            <p className={s.details}>Details: {sneaker.details}</p>
+            <p className={s.details}>Details: {sneaker.description}</p>
             <p className={s.sizes_title}>Selec Size (EUR)</p>
             <div className={s.sizes}>
               
-                {sneaker.sizes?.map(({ size }, i) => (
+                {/* {sneaker.sizes?.map(({ size }, i) => (
                   <div className={s.size} key={i}> <p>{size}</p> </div>
-                ))}
+                ))} */}
+                <div className={s.size}> <p>{sneaker.size.numberSize}</p> </div>
             </div>
             <p className={s.subtitle}>Material </p>
-            <p className={s.cont}>{sneaker.name}</p>
+            <p className={s.cont}>{sneaker.model.material.nameMaterial}</p>
             <p className={s.subtitle}>Model</p>
-            <p className={s.cont}>{sneaker.name}</p>
+            <p className={s.cont}>{sneaker.model.nameModel}</p>
             <button className={s.addCart}>Add to Cart</button>
           </section>
         </div>

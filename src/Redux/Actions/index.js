@@ -18,25 +18,32 @@ export function getSneakers() {
 		}
 	};
 }
-export function searchByName(name) {
-	return async function (dispatch) {
-		try {
-			if (name) {
-				const { data } = await axios.get(
-					`http://localhost:3001/sneakers?name=${name}`
-				);
-				return dispatch({
-					type: SEARCH_BY_NAME,
-					payload: data,
-				});
-			}
-		} catch (error) {
-			return dispatch({
-				type: SEARCH_BY_NAME,
-				payload: error,
-			});
-		}
-	};
+// export function searchByName(name) {
+// 	return async function (dispatch) {
+// 		try {
+// 			if (name) {
+// 				const { data } = await axios.get(
+// 					`http://localhost:3001/sneakers?name=${name}`
+// 				);
+// 				return dispatch({
+// 					type: SEARCH_BY_NAME,
+// 					payload: data,
+// 				});
+// 			}
+// 		} catch (error) {
+// 			return dispatch({
+// 				type: SEARCH_BY_NAME,
+// 				payload: error,
+// 			});
+// 		}
+// 	};
+// }
+
+export function searchByName(name){
+	return{
+		type: SEARCH_BY_NAME,
+		payload: name
+	}
 }
 
 export function filterByCategory(category) {
@@ -51,7 +58,7 @@ export function filterByBrand(brand) {
    // brand = brand.toLowerCase();
 			return {
 				type: FILTER_BY_BRAND,
-				payload: brand,
+				payload: brand.toLowerCase(),
 			}
 		} 
 	
@@ -59,7 +66,7 @@ export function filterByBrand(brand) {
 export function getDetailSneaker(id) {
 	return async function (dispatch) {
 		try {
-			const { data } = await axios.get(`http://localhost:3001/sneakers/${id}`);
+			const { data } = await axios.get(`http://localhost:3001/sneaker/${id}`);
 			//console.log("estamos en detail-actions pa", data)
 			return dispatch({
 				type: GET_DETAIL,

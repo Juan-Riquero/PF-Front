@@ -42,10 +42,11 @@ const Filters = () => {
     <div className={s.filters}>
       <select
         onChange={handleCategory}
+        name="categoryFilters"
       >
         <option value="">All categories</option>
         {
-          categories.length && categories?.map(({ nameCategory },id) => <option key={id} value={nameCategory}>{nameCategory}</option>)
+          categories.length && categories?.map(({ nameCategory }, id) => <option key={id} value={nameCategory.toLowerCase()}>{nameCategory}</option>)
         }
       </select>
 

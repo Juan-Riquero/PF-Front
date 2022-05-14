@@ -1,5 +1,5 @@
 //componenente Home
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 //Componentes y funciones
@@ -20,6 +20,10 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1); // Estado para seleccionar pagina actual
   const lastSneaker = currentPage * SNEAKERS_PER_PAGE;
   const firstSneaker = lastSneaker - SNEAKERS_PER_PAGE;
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [filteredSneakers]);
   // Se corta el array de todas las zapatillas con los dos indices inicial y final de la página, para obtener las zapatillas 
   // que se mostraran en la página actual
   let currentPageSneakers = filteredSneakers.length ? filteredSneakers.slice(firstSneaker, lastSneaker) : [];

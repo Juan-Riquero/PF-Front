@@ -3,18 +3,15 @@ import {
 	SEARCH_BY_NAME,
 	FILTER_BY_BRAND,
 	FILTER_BY_CATEGORY,
-  GET_DETAIL,
-} from '../Actions';
-
-
-
+	GET_DETAIL,
+} from "../Actions";
 
 const initialState = {
 	searchSneakers: [],
 	Sneakers: [],
 	SneakersCopy: [],
-  filters: [],
-  detail: [],
+	filters: [],
+	detail: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -27,35 +24,42 @@ const rootReducer = (state = initialState, { type, payload }) => {
 			};
 
 		case SEARCH_BY_NAME:
+			const sneakerMatching = state.Sneakers.filter(s => s.model.toLowerCase().includes(payload.toLowerCase()))
 			return {
 				...state,
-        Sneakers: payload,
-				searchSneakers: payload,
+				Sneakers: sneakerMatching,
 			};
 
 		case FILTER_BY_CATEGORY:
-      //const filterCategory= state.SneakersCopy.filter((el)=> el.category.includes(payload))
-	  const filterCategory = payload === "" ? state.SneakersCopy : state.SneakersCopy.filter((el)=> el.category.includes(payload))
-		return {
-	            ...state,
+			//const filterCategory= state.SneakersCopy.filter((el)=> el.category.includes(payload))
+			const filterCategory =
+				payload === ""
+					? state.SneakersCopy
+					: state.SneakersCopy.filter((el) => el.categories?.includes(payload));
+			return {
+				...state,
 				Sneakers: filterCategory,
 			};
 
 		case FILTER_BY_BRAND:
 			//console.log("estamos en reducer consologueando el payload",payload)
-			const filterBrand = payload === "" ? state.SneakersCopy : state.SneakersCopy.filter((el)=> el.brand_name.toLowerCase()===payload)
-     // const filterBrand= state.SneakersCopy.filter((el)=> el.brand_name.toLowerCase()===payload)
-      //console.log("estamos todos en el reducer", filterBrand)
+			const filterBrand =
+				(payload === "")
+					? state.SneakersCopy
+					: state.SneakersCopy.filter(
+						(el) => el.brand.toLowerCase() === payload
+					);
+			// const filterBrand= state.SneakersCopy.filter((el)=> el.brand_name.toLowerCase()===payload)
+			//console.log("estamos todos en el reducer", filterBrand)
 			return {
 				...state,
 				Sneakers: filterBrand,
-      
 			};
-      case GET_DETAIL:
-        return{
-          ...state,
-          detail: payload,
-        };
+		case GET_DETAIL:
+			return {
+				...state,
+				detail: payload,
+			};
 
 		default:
 			return state;

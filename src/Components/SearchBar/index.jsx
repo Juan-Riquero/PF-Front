@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { searchByName } from "../../Redux/Actions/";
+import { searchByName, getSneakers } from "../../Redux/Actions/";
 import styles from "./SearchBar.module.css";
 import { BiSearchAlt2 } from 'react-icons/bi';
 
@@ -20,7 +20,11 @@ export default function SearchBar({ setCurrentPage }) {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(searchByName(searchValue));
+    if (searchValue === '') {
+      dispatch(getSneakers())
+    }else{
+      dispatch(searchByName(searchValue));
+    }
   }
 
   return (
