@@ -2,9 +2,13 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 export default function App() {
+<<<<<<< HEAD
   const { register, handleSubmit, formState: { errors }, formState} = useForm({mode: "onChange",});
   // const { register, handleSubmit, formState: { errors } , reset, watch,formState } = useForm({mode: "onChange",});
 
+=======
+  const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onChange", });
+>>>>>>> 7d336c439a49944c529db828529891b46e6d1cd3
   const onSubmit = data => console.log(data);
 
   return (
@@ -75,4 +79,8 @@ export default function App() {
       </button>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7d336c439a49944c529db828529891b46e6d1cd3
