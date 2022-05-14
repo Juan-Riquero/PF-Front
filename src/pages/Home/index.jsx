@@ -16,7 +16,7 @@ const Home = () => {
 
   // PAGINACIÓN ----------------------------------------------------------------------------------------------------
   // Se crea la paginación de x zapatillas por pagina
-  const SNEAKERS_PER_PAGE = 3; // Constante para setear cantidad de zapatillas por página
+  const SNEAKERS_PER_PAGE = 6; // Constante para setear cantidad de zapatillas por página
   const [currentPage, setCurrentPage] = useState(1); // Estado para seleccionar pagina actual
   const lastSneaker = currentPage * SNEAKERS_PER_PAGE;
   const firstSneaker = lastSneaker - SNEAKERS_PER_PAGE;
@@ -27,8 +27,6 @@ const Home = () => {
   return (
     <div className={style.home}>
       <ImagenPrincipal />
-      
-      <Carrousel/>
 
       {/* Componente para filtros */}
       <Filters />

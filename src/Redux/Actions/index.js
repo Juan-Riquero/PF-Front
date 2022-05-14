@@ -40,44 +40,22 @@ export function searchByName(name) {
 }
 
 export function filterByCategory(category) {
-	category= category.toLowerCase()
-
-	return  function (dispatch) {
-		try {
-            return dispatch({
-				type: FILTER_BY_CATEGORY,
-				payload: category,
-			});
-		} catch (error) {
-			return dispatch({
-				type: FILTER_BY_CATEGORY,
-				payload: error,
-			});
-		}
-	};
+	 return {
+		 type: FILTER_BY_CATEGORY,
+		 payload: category
+	 }
 }
 
 export function filterByBrand(brand) {
-	return async function (dispatch) {
-   brand = brand.toLowerCase();
-   // console.log('LLEGUEEEEEEEEE'); 
-		try {
-			/* const { data } = await axios.get(
-				`http://localhost:3001/filters/brand?brand=${brand}`
-			); */
-
-			return dispatch({
+	console.log("estoy en la brand pa",brand)
+   // brand = brand.toLowerCase();
+			return {
 				type: FILTER_BY_BRAND,
 				payload: brand,
-			});
-		} catch (error) {
-			return dispatch({
-				type: FILTER_BY_BRAND,
-				payload: error,
-			});
-		}
-	};
-}
+			}
+		} 
+	
+
 export function getDetailSneaker(id) {
 	return async function (dispatch) {
 		try {

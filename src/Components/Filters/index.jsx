@@ -27,6 +27,7 @@ const Filters = () => {
 
   const handleCategory = (e) => {
     e.preventDefault();
+   // console.log("estoy en el handle category", e.target.value)
     dispatch(filterByCategory(e.target.value));
 
   }
@@ -34,18 +35,17 @@ const Filters = () => {
   const handleBrand = (e) => {
     e.preventDefault();
     dispatch(filterByBrand(e.target.value));
-    console.log("estamos en el handle brand", e.target.value)
+    //console.log("estamos en el handle brand", e.target.value)
   }
 
   return (
     <div className={s.filters}>
       <select
-        disabled={true}
         onChange={handleCategory}
       >
         <option value="">All categories</option>
         {
-          categories.length && categories?.map(({ name },id) => <option key={id} value={name}>{name}</option>)
+          categories.length && categories?.map(({ nameCategory },id) => <option key={id} value={nameCategory}>{nameCategory}</option>)
         }
       </select>
 
@@ -54,7 +54,7 @@ const Filters = () => {
       >
         <option value="" >All brands</option>
         {
-          brands.length && brands?.map(({  name },id) => <option key={id} value={name}>{name}</option>)
+          brands.length && brands?.map(({  nameBrand },id) => <option key={id} value={nameBrand}>{nameBrand}</option>)
         }
       </select>
     </div>
