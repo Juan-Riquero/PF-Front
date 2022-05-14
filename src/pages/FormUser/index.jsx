@@ -6,7 +6,6 @@ export default function App() {
   const { register, handleSubmit, formState: { errors }, formState} = useForm({mode: "onChange",});
   // const { register, handleSubmit, formState: { errors } , reset, watch,formState } = useForm({mode: "onChange",});
 
-  const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onChange", });
   const onSubmit = data => console.log(data);
 
   return (

@@ -17,10 +17,6 @@ const NavBar = () => {
 
         {/* el navlink se utiliza para saber si esta activo o no */}
         <ul className={styles.links__ul}>
-<<<<<<< HEAD
-=======
-          {/* Componente para searchBar */}
->>>>>>> 7d336c439a49944c529db828529891b46e6d1cd3
 
           <NavLink
             className={styles.links__a}
@@ -31,15 +27,7 @@ const NavBar = () => {
           >
             Sign Up
           </NavLink>
-<<<<<<< HEAD
-          <SearchBar/>
-=======
-
-          {/* <NavLink className={styles.links__a} to='/user'>
-            Crear Usuario
-          </NavLink> */}
           <SearchBar />
->>>>>>> 7d336c439a49944c529db828529891b46e6d1cd3
         </ul>
       </nav>
     </header>
