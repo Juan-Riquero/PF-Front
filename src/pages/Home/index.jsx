@@ -29,19 +29,29 @@ const Home = () => {
 
   return (
     <div className={style.home}>
-      <ImagenPrincipal />
 
-      {/* Componente para filtros */}
-      <Filters />
 
-      {/* Componente para paginado */}
-      <Pagination numberOfSneakers={filteredSneakers.length}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        SNEAKERS_PER_PAGE={SNEAKERS_PER_PAGE}
-      />
+      {
+        !filteredSneakers.length
+          ? <h2>Sneakers not found</h2>
+          : <>
+            <ImagenPrincipal />
 
-      <Cards renderSneakers={currentPageSneakers} />
+            {/* Componente para filtros */}
+            <Filters />
+
+            {/* Componente para paginado */}
+            <Pagination numberOfSneakers={filteredSneakers.length}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              SNEAKERS_PER_PAGE={SNEAKERS_PER_PAGE}
+            />
+
+            <Cards renderSneakers={currentPageSneakers} />
+          </>
+      }
+
+
     </div>
   );
 }

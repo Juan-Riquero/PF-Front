@@ -4,6 +4,7 @@ import { searchByName, getSneakers } from "../../Redux/Actions/";
 import { BiSearchAlt2 } from 'react-icons/bi';
 import styles from "./SearchBar.module.css";
 import { useNavigate } from "react-router-dom";
+import { animateScroll as scroll } from 'react-scroll';
 
 export default function SearchBar() {
   const [searchValue, setSearchValue] = useState("");
@@ -20,6 +21,7 @@ export default function SearchBar() {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     navigate("/");
+    scroll.scrollTo(700);
     if (searchValue === '') {
       dispatch(getSneakers())
     } else {
