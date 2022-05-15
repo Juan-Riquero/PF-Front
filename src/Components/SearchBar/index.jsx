@@ -1,26 +1,32 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-
-import { searchByName } from "../../Redux/Actions/";
-import styles from "./SearchBar.module.css";
+import { searchByName, getSneakers } from "../../Redux/Actions/";
 import { BiSearchAlt2 } from 'react-icons/bi';
+import styles from "./SearchBar.module.css";
+import { useNavigate } from "react-router-dom";
+import { animateScroll as scroll } from 'react-scroll';
 
-
-export default function SearchBar({ setCurrentPage }) {
+export default function SearchBar() {
+  const [searchValue, setSearchValue] = useState("");
   const dispatch = useDispatch();
 
-  const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const inputValue = e.target.value;
     e.preventDefault();
     setSearchValue(inputValue);
-    // setCurrentPage(1);
   }
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(searchByName(searchValue));
+    navigate("/");
+    scroll.scrollTo(700);
+    if (searchValue === '') {
+      dispatch(getSneakers())
+    } else {
+      dispatch(searchByName(searchValue));
+    }
   }
 
   return (
@@ -41,4 +47,3 @@ export default function SearchBar({ setCurrentPage }) {
     </div>
   )
 }
-
