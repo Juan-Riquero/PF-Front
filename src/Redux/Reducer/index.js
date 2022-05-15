@@ -24,7 +24,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case SEARCH_BY_NAME:
-      const sneakerMatching = state.Sneakers.filter(s => s.match.toLowerCase().includes(payload.toLowerCase()))
+      const sneakerMatching = state.SneakersCopy.filter(s => s.match.toLowerCase().includes(payload.toLowerCase()))
       return {
         ...state,
         Sneakers: sneakerMatching,

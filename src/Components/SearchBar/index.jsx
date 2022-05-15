@@ -3,11 +3,13 @@ import { useDispatch } from "react-redux";
 import { searchByName, getSneakers } from "../../Redux/Actions/";
 import { BiSearchAlt2 } from 'react-icons/bi';
 import styles from "./SearchBar.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
-
   const [searchValue, setSearchValue] = useState("");
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const inputValue = e.target.value;
@@ -17,6 +19,7 @@ export default function SearchBar() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    navigate("/");
     if (searchValue === '') {
       dispatch(getSneakers())
     } else {

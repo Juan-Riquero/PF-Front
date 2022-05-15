@@ -56,7 +56,7 @@ function Paginado({ numberOfSneakers, currentPage, setCurrentPage, SNEAKERS_PER_
       <button
         onClick={handleNextPage}
         className={currentPage === numberOfPages ? s.disabled : s.previous_and_next_button}
-        disabled={currentPage === numberOfPages}>
+        disabled={currentPage === numberOfPages || !numberOfPages}>
         Next
       </button>
     </nav>

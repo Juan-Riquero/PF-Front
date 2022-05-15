@@ -16,6 +16,7 @@
   color: gray;
   border-color: rgb(173, 173, 173);
   border-style: solid;
+  cursor: pointer;
 }
 
 .pag:disabled{
@@ -43,4 +44,5 @@
   text-transform: uppercase;
   font-weight: 600;
   margin: 0 2rem;
+  cursor: pointer;
 }
