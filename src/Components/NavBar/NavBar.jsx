@@ -1,15 +1,19 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 
 import styles from './NavBar.module.css'
 
 // Componentes y funciones
 import SearchBar from '../SearchBar'
+import { getSneakers } from '../../Redux/Actions';
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+
   return (
     <header className={styles.header}>
-      <NavLink to="/" className={styles.logo}>
+      <NavLink to="/" className={styles.logo} onClick={()=> dispatch(getSneakers()) }>
         Henry's
         {/* <img src="https://i.imgur.com/Q9XcQ9I.png" alt="logo" /> */}
       </NavLink>
