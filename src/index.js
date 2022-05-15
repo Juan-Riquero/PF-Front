@@ -4,8 +4,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import store from "./Redux/Store";
 import { Provider } from "react-redux";
-import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>

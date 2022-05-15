@@ -1,10 +1,9 @@
 import React from "react";
-
+import s from './paginado.module.css'
 
 function Paginado({ numberOfSneakers, currentPage, setCurrentPage, SNEAKERS_PER_PAGE }) {
 
   const pageNumbers = [];
-  //console.log('CANTIDAD DE PAGINAS', pageNumbers);
   // Se calcula el número de páginas que se mostrarán
   const numberOfPages = Math.ceil(numberOfSneakers / SNEAKERS_PER_PAGE);
 
@@ -27,20 +26,22 @@ function Paginado({ numberOfSneakers, currentPage, setCurrentPage, SNEAKERS_PER_
   };
 
   return (
-    <nav>
-      {/* Boton anterior */}
+    <nav className={s.container}>
+      {/* Botón anterior */}
       <button
         onClick={handlePreviousPage}
+        className={currentPage === 1 ? s.disabled : s.previous_and_next_button}
         disabled={currentPage === 1}>
-        {/* className={currentPage === 1 ? styles.disabled : styles.previous_and_next_button} */}
-        Previous
+
+        Prev
       </button>
-      {/* Botones de las paginas */}
+      {/* Botones de las páginas */}
 
       {
         pageNumbers?.map((number) => {
           return (
             <button
+              className={s.pag}
               onClick={() => paginated(number)}
               key={number}
               disabled={currentPage === number}
@@ -51,12 +52,12 @@ function Paginado({ numberOfSneakers, currentPage, setCurrentPage, SNEAKERS_PER_
         })
       }
 
-      {/* Boton siguiente */}
+      {/* Botón siguiente */}
       <button
         onClick={handleNextPage}
-        disabled={currentPage === numberOfPages}>
+        className={currentPage === numberOfPages ? s.disabled : s.previous_and_next_button}
+        disabled={currentPage === numberOfPages || !numberOfPages}>
         Next
-        {/* // className={currentPage === numberOfPages ? styles.disabled : styles.previous_and_next_button}> */}
       </button>
     </nav>
   );

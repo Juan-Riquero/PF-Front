@@ -2,8 +2,6 @@ import Card from '../Card';
 import style from './Cards.module.css'
 
 function Cards({ renderSneakers }) {
-  //console.log("componente Cards", renderSneakers)
-
   return (
     <div className={style.cards} >
       {
