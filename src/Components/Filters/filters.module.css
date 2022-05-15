@@ -17,6 +17,7 @@
     font-size: 1.2rem;
     text-align: center;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .filters select:hover {

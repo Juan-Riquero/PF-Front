@@ -1,25 +1,27 @@
 .main_createUser {
 	margin-top: 0;
 	min-height: calc(100vh - 5rem);
-	background-color: var(--color1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	background-color: var(--blanco);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .container {
-  width: 95%;
-  /* height: 25rem; */
-  min-height: 40vh;
+	width: 95%;
+	/* height: 25rem; */
+	min-height: 40vh;
 	display: flex;
-	background-color: white;
+	background-color: var(--color3);
 	box-shadow: 3px 3px 5px 0px rgb(0 0 0 / 75%);
 	border-radius: 1rem;
 }
 
+/* Para ocultar la parte derecha cuando esta en pantalla chica */
 .rightBox {
-  display: none;
-  width: 100%;
+	display: none;
+	width: 100%;
+	/* position: relative; */
 }
 
 .form_container {
@@ -30,6 +32,48 @@
 	align-items: center;
 	width: 100%;
 	height: 100%;
+}
+
+@media (min-width: 769px) {
+	.container {
+		width: max(60%, 670px);
+		height: 40rem;
+	}
+
+	.rightBox {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+  .rotate {
+    transform: rotate(-17deg);
+    font-size: calc(2.4vw + 2.4vh + 1.9vmin);
+    position: absolute;
+    top: 34%;
+    right: 0;
+  }
+
+  /* Para se mueva con el padre con sobre las letras */
+	.position_relative {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+
+	.image_container {
+		position: absolute;
+    top: 8%;
+    right: 0;
+    width: 90%;
+    height: 84%;
+	}
+
+	.image_container img {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 /*FORMULARIO---------------------------------------------------------------*/
@@ -51,7 +95,7 @@ border-radius: 1rem; */
 	text-align: left;
 	font-family: 'Montserrat', 'PT Sans', sans-serif;
 	/* font-size: 0.65em; */
-  font-size: calc(.6vw + .6vh + 0.3vmin);
+	font-size: calc(0.6vw + 0.6vh + 0.3vmin);
 	font-weight: 700;
 	color: black;
 	margin-bottom: 1em;
@@ -60,7 +104,6 @@ border-radius: 1rem; */
 .formulario__contenedorCampos__campo {
 	margin-bottom: 0.5em;
 }
-
 
 .formulario
 	.formulario__fieldset
@@ -92,6 +135,12 @@ border-radius: 1rem; */
 
 .input_checkBox {
 	margin-left: 0.5em;
+  margin-right: 0.8em;
+  cursor: pointer;
+}
+
+.formulario__contenedorCampos__campo label{
+  cursor: pointer;
 }
 
 .leyenda {
@@ -101,14 +150,13 @@ border-radius: 1rem; */
 	font-weight: 700;
 }
 
+/* Mensajes de error y exito al enviar */
 .msg_error {
 	height: 2.8125rem;
 	line-height: 2.8125rem;
 	margin: 0 auto;
 	margin-top: 0.8em;
 	padding: 0 1em;
-	/* grid-row: 5/6;
-  grid-column: -4/-1; */
 	border-radius: 0.2rem;
 	background-color: #bb2929;
 }
@@ -125,25 +173,15 @@ border-radius: 1rem; */
 	margin: 0 auto;
 	margin-top: 0.8em;
 	padding: 0 1em;
-
 	border-radius: 0.2rem;
 	background-color: green;
 }
 
-@media (min-width: 769px) {
-  .container {
-    width: max(60%, 670px);
-    height: 40rem;
-  }
-
-  .rightBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.account {
+  margin-top: .9em;
+  text-align: center;
+  font-weight: bold;
 }
-
 /*fin formulario------------------------------------------------------------*/
 
 /*Boton formulario----------------------------------------------------*/
@@ -155,11 +193,10 @@ border-radius: 1rem; */
 }
 
 .contenedorBotones .contenedorBotones__boton {
-  width: 100%;
+	width: 100%;
 	/* position: relative; */
 	padding: 1em 2em;
 	margin-top: 0.7em;
-	/* background-color: #d83863; */
 	font-family: 'Montserrat', 'PT Sans', sans-serif;
 	font-size: 1em;
 	font-weight: 700;

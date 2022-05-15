@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './Form.module.css';
+import image from '../../Assets/Images/3.svg';
 
 
 export default function App() {
@@ -11,7 +12,9 @@ export default function App() {
 
   return (
     <section className={styles.main_createUser}>
+
       <div className={styles.container}>
+
         <div className={styles.form_container}>
           <form onSubmit={handleSubmit(onSubmit)} className={styles.formulario}>
             <fieldset className={styles.formulario__fieldset}>
@@ -70,6 +73,7 @@ export default function App() {
 
                 <div className={styles.formulario__contenedorCampos__campo}>
                   <input
+                    id="termsAndConditions"
                     type="checkbox"
                     className={styles.input_checkBox}
                     placeholder="termsAndConditions"
@@ -78,7 +82,7 @@ export default function App() {
                     })
                     }
                   />
-                  <label>I agree with Terms and Privacy</label>
+                  <label htmlFor="termsAndConditions">I agree with Terms and Privacy</label>
                   {errors.termsAndConditions?.type === "required" && <p className={styles.leyenda}>You must accept the terms and privacy</p>}
                 </div>
               </div>
@@ -86,18 +90,25 @@ export default function App() {
               <div className={styles.contenedorBotones}>
                 <button type="submit" className={styles.contenedorBotones__boton}>SIGN UP</button>
                 <button onClick={() => console.log(errors)} className={styles.contenedorBotones__boton}>
-                  Sign Un with Google
+                  Sign Up with Google
                 </button>
+              </div>
+              <div className={styles.account}>
+                <label className={styles.label_account}>Already have an account? Log in</label>
               </div>
             </fieldset>
           </form>
         </div>
 
         <div className={styles.rightBox}>
-          <div className={styles.x}>
-            <h2>HENRYS</h2>
+          <div className={styles.position_relative}>
+            <h2 className={styles.rotate}>HENRYS</h2>
+            <div className={styles.image_container}>
+              <img src={image} alt="logo" />
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

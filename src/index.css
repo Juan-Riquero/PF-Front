@@ -7,18 +7,20 @@
 :root {
 	--color1: #fb5014;
 	--color2: #17b4cc;
+	--color3: #606366;
 	--negro: #000000;
   --negro2: #0b2027;
-	--blanco: #f6f1d1;
-  --rojo: #d83863;
+  --blanco: #FFFFFF;
+	--blanco2: #f6f1d1;
+  --rojo: red;
 
 	--secundario: #40798c;
 	--terciario: #70a9a1;
 	--cuatro: #cfd7c7;
 	--cinco: #f6f1d1;
 
-	--botones: #fb5014;
-	--botonesSombraPulso: #fb501499;
+	--botones: #000000;
+	--botonesSombraPulso: #00000099;
 	--negrotransparentado: #00000050;
 }
 
