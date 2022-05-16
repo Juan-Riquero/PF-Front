@@ -18,10 +18,22 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1); // Estado para seleccionar pagina actual
   const lastSneaker = currentPage * SNEAKERS_PER_PAGE;
   const firstSneaker = lastSneaker - SNEAKERS_PER_PAGE;
+  const [loading, setLoading] = useState(false); // Estado para mostrar loading
 
   useEffect(() => {
     setCurrentPage(1)
   }, [filteredSneakers]);
+  useEffect(() => {
+    setLoading(true)
+
+  }, []);
+  useEffect(() => {
+    filteredSneakers.length !== 0 && setLoading(false)
+
+  }, [filteredSneakers]);
+
+
+
   // Se corta el array de todas las zapatillas con los dos indices inicial y final de la página, para obtener las zapatillas 
   // que se mostraran en la página actual
   let currentPageSneakers = filteredSneakers.length ? filteredSneakers.slice(firstSneaker, lastSneaker) : [];
@@ -30,10 +42,10 @@ const Home = () => {
   return (
     <div className={style.home}>
 
-
-      {
-        !filteredSneakers.length
-          ? <h2>Sneakers not found</h2>
+       {filteredSneakers.length ===0 && loading===false? <h2>Sneakers not found </h2>:
+      
+        loading===true 
+          ? <h2>Loading..</h2>
           : <>
             <ImagenPrincipal />
 
