@@ -12,8 +12,8 @@
 	/* height: 25rem; */
 	min-height: 40vh;
 	display: flex;
-	background-color: var(--color3);
-	box-shadow: 3px 3px 5px 0px rgb(0 0 0 / 75%);
+	background-color: var(--blanco);
+	/* box-shadow: 3px 3px 5px 0px rgb(0 0 0 / 75%); */
 	border-radius: 1rem;
 }
 
@@ -117,7 +117,7 @@ border-radius: 1rem; */
 	font-size: 1em;
 	font-weight: 400;
 	width: 100%;
-	/* border: none; */
+	border: 2px solid #242121;
 	padding: 1em;
 	border-radius: 0.2em;
 	margin-bottom: 0.2em;

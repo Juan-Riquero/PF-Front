@@ -8,7 +8,9 @@ import NavBar from "./Components/NavBar/NavBar";
 import Home from './Pages/Home';
 import Detail from "./Pages/Detail";
 import FormUser from './Pages/FormUser/index.jsx'
+import ShoppingCart from './Components/ShoppingCart';
 import { getSneakers } from './Redux/Actions';
+import Cart from "./Components/ShoppingCart/Cart";
 
 function App() {
 
@@ -26,6 +28,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path='/create-user' element={<FormUser />} />
+        <Route path='/cart' element={<Cart/>} />
+        <Route path='/cart2' element={<ShoppingCart/>} />
+
       </Routes>
     </div>
   );

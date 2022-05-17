@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import styles from './NavBar.module.css'
 
@@ -13,7 +13,7 @@ const NavBar = () => {
 
   return (
     <header className={styles.header}>
-      <NavLink to="/" className={styles.logo} onClick={()=> dispatch(getSneakers()) }>
+      <NavLink to="/" className={styles.logo} onClick={() => dispatch(getSneakers())}>
         Henry's
         {/* <img src="https://i.imgur.com/Q9XcQ9I.png" alt="logo" /> */}
       </NavLink>
@@ -33,9 +33,26 @@ const NavBar = () => {
             Sign Up
           </NavLink>
 
-          {/* <NavLink className={styles.links__a} to='/user'>
-            Crear Usuario
-          </NavLink> */}
+          <NavLink
+            className={styles.links__a}
+            // className={({ isActive }) => {
+            //     return isActive ? 'is-active' : '';
+            // }}
+            to='#'
+          >
+            Sign In
+          </NavLink>
+
+          <NavLink
+            className={styles.links__a}
+            // className={({ isActive }) => {
+            //     return isActive ? 'is-active' : '';
+            // }}
+            to='/cart'
+          >
+            Cart
+          </NavLink>
+
           <SearchBar />
         </ul>
       </nav>

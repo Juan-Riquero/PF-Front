@@ -5,7 +5,7 @@ import image from '../../Assets/Images/3.svg';
 
 
 export default function App() {
-  const { register, handleSubmit, formState: { errors }, formState } = useForm({ mode: "onChange", });
+  const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onChange", });
   // const { register, handleSubmit, formState: { errors } , reset, watch,formState } = useForm({mode: "onChange",});
 
   const onSubmit = data => console.log(data);
@@ -102,7 +102,7 @@ export default function App() {
 
         <div className={styles.rightBox}>
           <div className={styles.position_relative}>
-            <h2 className={styles.rotate}>HENRYS</h2>
+            {/* <h2 className={styles.rotate}>HENRYS</h2> */}
             <div className={styles.image_container}>
               <img src={image} alt="logo" />
             </div>
